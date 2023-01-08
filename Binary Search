@@ -3,9 +3,16 @@ Woks on divide and conquer.
 Need two pointers = l and h
 Note: calculate mid=(l+h)/2 like this
 
-Program:
+Program: Using array and ArrayList
+
+package SearchingAlgos;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class BinarySearchDemo {
+	
+	//Method using array[]
 	
 	public static int binarySeach(int[] list,int key)
 	{
@@ -23,11 +30,11 @@ public class BinarySearchDemo {
 			}
 			else
 			{
-				if(list[mid]>key)
+				if(key<list[mid])
 				{
 					h = mid;
 				}
-				else if(list[mid]<key)
+				else
 				{
 					l = mid;
 				}
@@ -37,6 +44,40 @@ public class BinarySearchDemo {
 		
 		return 0;
 		
+	}
+	
+	//Method using ArrayList<>();
+	
+	public static int binarySearchUsingCF(ArrayList<Integer> arrlist, int key)
+	{
+		int l = 0;
+		int h = arrlist.size();
+
+		
+		for(int i=0;i<arrlist.size();i++)
+		{
+			int mid = (l+h)/2;
+			
+			if(arrlist.get(mid)==key)
+			{
+				return mid;
+			}
+			
+			else
+			{
+				
+				if(arrlist.get(mid)>key)
+				{
+					h = mid;
+				}
+				else
+				{
+					l = mid;
+				}
+			}
+		}
+		
+		return 0;
 	}
 
 	public static void main(String[] args) {
@@ -48,6 +89,21 @@ public class BinarySearchDemo {
 		
 		System.out.println(resultIndex);
 
+		ArrayList<Integer> arr = new ArrayList<>();
+		arr.add(5);
+        arr.add(10);
+        arr.add(15);
+        arr.add(20);
+        arr.add(25);
+        arr.add(30);
+        arr.add(35);
+
+        Collections.sort(arr); 
+        System.out.println(arr);
+        
+		Integer arrListResult = BinarySearchDemo.binarySearchUsingCF(arr, 35);
+		
+		System.out.println(arrListResult);
 	}
 
 }
