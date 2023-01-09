@@ -1,0 +1,55 @@
+Bubble Sort Algorithm:
+
+Note: In this you will sort the largest element first at the last place;
+
+
+
+Program:
+
+package Sorting;
+
+public class BubbleSortDemo {
+
+	public static void bubbleSorting(int[] array)
+	{
+		int n = array.length;
+		for(int i=0;i<n-1;i++)
+		{
+			boolean sorted= false;
+			for(int j=0;j<n-i-1;j++)
+			{
+				if(array[j+1]<array[j])
+				{
+					sorted = true;
+					int temp = array[j];
+					array[j] = array[j+1];
+					array[j+1] = temp;
+				}
+			}
+			
+			if(!sorted)
+			{
+				break;
+			}
+			
+		}
+	}
+	public static void main(String[] args) {
+		
+		int [] list = {1,4,7,9,13,23,56,78,99,102,112,119};
+		for(int x: list)
+		{
+			System.out.print(x+" ");
+		}
+		System.out.println();
+		
+		BubbleSortDemo.bubbleSorting(list);
+
+		for(int x: list)
+		{
+			System.out.print(x+" ");
+		}
+		
+	}
+
+}
