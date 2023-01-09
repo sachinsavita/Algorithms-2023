@@ -12,17 +12,18 @@ import java.util.Collections;
 
 public class BinarySearchDemo {
 	
-	//Method using array[]
 	
 	public static int binarySeach(int[] list,int key)
 	{
 		int l = 0;
-		int h = list.length;
+		int h = list.length-1;
 		
-		for(int i = 0;i<list.length;i++)
+		while(l<=h)
 		{
 			
 			int mid = (l+h)/2;
+			
+			System.out.println(list[mid]);
 			
 			if(list[mid]==key)
 			{
@@ -32,29 +33,29 @@ public class BinarySearchDemo {
 			{
 				if(key<list[mid])
 				{
-					h = mid;
+					h = mid-1;
 				}
 				else
 				{
-					l = mid;
+					l = mid+1;
 				}
 			}
 			
 		}
 		
-		return 0;
+		return -1;
 		
 	}
 	
-	//Method using ArrayList<>();
+	
 	
 	public static int binarySearchUsingCF(ArrayList<Integer> arrlist, int key)
 	{
 		int l = 0;
-		int h = arrlist.size();
+		int h = arrlist.size()-1;
 
 		
-		for(int i=0;i<arrlist.size();i++)
+		while(l<=h)
 		{
 			int mid = (l+h)/2;
 			
@@ -68,16 +69,16 @@ public class BinarySearchDemo {
 				
 				if(arrlist.get(mid)>key)
 				{
-					h = mid;
+					h = mid-1;
 				}
 				else
 				{
-					l = mid;
+					l = mid+1;
 				}
 			}
 		}
 		
-		return 0;
+		return -1;
 	}
 
 	public static void main(String[] args) {
@@ -85,7 +86,7 @@ public class BinarySearchDemo {
 		
 		int [] list = {1,4,7,9,12,23,56,78,99,105,111,119};
 		
-		int resultIndex = BinarySearchDemo.binarySeach(list, 119);
+		int resultIndex = BinarySearchDemo.binarySeach(list, 566);
 		
 		System.out.println(resultIndex);
 
@@ -101,7 +102,7 @@ public class BinarySearchDemo {
         Collections.sort(arr); 
         System.out.println(arr);
         
-		Integer arrListResult = BinarySearchDemo.binarySearchUsingCF(arr, 35);
+		Integer arrListResult = BinarySearchDemo.binarySearchUsingCF(arr, 20);
 		
 		System.out.println(arrListResult);
 	}
