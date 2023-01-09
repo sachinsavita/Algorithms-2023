@@ -1,0 +1,52 @@
+Insertion Sort Algorithm:
+
+Note: In this you sort the smallest elemnt at the first place.
+      Insertion sort is more compatible with linkedlist than array.
+
+
+Program:
+
+package Sorting;
+
+public class InsertionSortDemo {
+	
+	
+	public static void insertionSort(int [] arr)
+	{
+		int n = arr.length;
+		for(int i=1;i<n;i++)
+		{
+			int j = i-1;
+			int temp = arr[i];
+			while(j>-1 && arr[j]>temp)
+			{
+				arr[j+1] = arr[j];
+				j--;
+			}
+			
+			arr[j+1] = temp;
+		}
+	}
+
+	public static void main(String[] args) {
+		
+		int [] list = {10,4,7,9,120,23,56,78,2,105,111,119};
+		
+		for(int x: list)
+		{
+			System.out.print(x+" ");
+		}
+		
+		System.out.println();
+		
+		InsertionSortDemo.insertionSort(list);
+		
+		for(int x: list)
+		{
+			System.out.print(x+" ");
+		}
+		
+
+	}
+
+}
