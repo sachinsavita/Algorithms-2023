@@ -1,0 +1,60 @@
+Programe:
+
+package SearchingAlgos;
+
+public class RecursiveBinSearch {
+	
+	
+	public static int recursiveBinarySearch(int l,int h,int key,int[] list)
+	{
+		
+		if(h==l)
+		{
+			if(list[l]==key)
+			{
+				return l;
+			}
+			else
+			{
+				return -1;
+			}
+		}
+		
+		else
+		{
+			int mid = (l+h)/2; 
+			System.out.println(list[mid]);
+			if(list[mid]==key)
+			{
+				return mid;
+			}
+			else if(key<list[mid])
+			{
+				return recursiveBinarySearch(l,mid-1,key,list);
+			}
+			else
+			{
+				return recursiveBinarySearch(mid+1,h,key,list);
+			}
+			
+		}
+	}
+
+	public static void main(String[] args) {
+
+		int[] list = { 1, 4, 7, 9, 12, 23, 56, 78, 99, 105, 111, 119};
+
+		for(int x: list)
+		{
+			System.out.print(x+" ");
+		}
+		System.out.println();
+		int l = 0;
+		int h = list.length-1;
+		int resultIndex = RecursiveBinSearch.recursiveBinarySearch(l,h,4,list);
+
+		System.out.println("Index: "+resultIndex);
+
+	}
+
+}
